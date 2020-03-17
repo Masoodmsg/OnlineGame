@@ -1,4 +1,4 @@
-const UserModel = require('./../models/UserModel')
+const UserModel = require('./../models/UserModel');
 
 const resolver = {
 
@@ -23,8 +23,10 @@ const resolver = {
 
     login: async (parent, args) => {
 
-        return UserModel.find({ username: args.username, password: args.password })
+        let obj = await UserModel.find({ username: args.username, password: args.password });
+        console.log(obj)
+        return obj
     }
-}
+};
 
 module.exports = resolver;

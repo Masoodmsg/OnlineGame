@@ -13,9 +13,10 @@ var config = {
      
         console.log('app runing on port ' + config.port.toString());
 
-        mongoose.connect('mongodb://localhost/OnlineGam', {
+        mongoose.connect('mongodb+srv://masood:masgha@cluster0-l87vi.azure.mongodb.net/', {
+            dbName: 'OnlineGame',
             useNewUrlParser: true, useUnifiedTopology: true
-        }).then(() => console.log('start db'))
+        }).then((a,b) => console.log('run db'))
             .catch(err => console.log(err));;
         mongoose.Promise = global.Promise;
 

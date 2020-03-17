@@ -4,7 +4,7 @@ let typeDefs = gql`
     type Query {
         user(id : String!) : User
         allUsers(page : Int , limit : Int) : UsersResult
-        login(usernam: String!, password: String!) : String
+        login(username: String!, password: String!) : Login
     }
 
     type UsersResult {
@@ -26,6 +26,8 @@ let typeDefs = gql`
        password : String
     }
 
- 
+    type Login {
+        name : String
+    }
 `
 module.exports = typeDefs

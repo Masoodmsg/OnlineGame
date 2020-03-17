@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
-import Login from './accounting/Login'
+import { Switch, Route, withRouter, Link } from "react-router-dom";
+import Login from './accounting/Login';
 
 
 function App(props) {
 
     return (
-        <Router>
+        <>
+            <div>
+                <Link to='/login'>Login</Link>
+            </div>
             <Switch>
                 <Route path="/login" component={Login} />
             </Switch>
-        </Router>
-    )
+
+        </>
+    );
 
 
 }
 
-export default App
+export default withRouter(App);
 
