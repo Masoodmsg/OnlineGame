@@ -23,6 +23,9 @@ function Login(props) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(query)
+        }).then(res => res.json()).then((res) => {
+
+            window.socket.emit('login',res.data.login) 
         });
     }
 

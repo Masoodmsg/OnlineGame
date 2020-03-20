@@ -8,7 +8,9 @@ const resolvers = require('./controllers');
 
 
 
-const app = express()
+var app = express()
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 // Provide resolver functions for your schema fields
 
 
@@ -24,6 +26,7 @@ app.use('/', routers.getRouter());
 app.use('/', express.static(__dirname + '/view/'))//path.join(this.rootDir, 'Viewes')
 app.use('/Assets/Images', express.static(__dirname + '/Viewes/Assets/Images'))
 
+global.WebSocket = io
 
 
-app.listen(config.port, config.host, config.appStart());
+http.listen(config.port, config.host, config.appStart());
