@@ -23,9 +23,9 @@ const resolver = {
 
     login: async (parent, args) => {
 
-        let obj = await UserModel.find({ username: args.username, password: args.password });
-        console.log(obj)
-        return obj
+        let obj = await UserModel.find({ username: args.username, password: args.password});
+       // console.log(obj)
+        return obj[0]
     }
 };
 

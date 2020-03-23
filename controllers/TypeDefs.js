@@ -28,6 +28,7 @@ let typeDefs = gql`
 
     type Login {
         name : String
+        username : String
     }
 `
 module.exports = typeDefs

@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 
 const userSchema = mongoose.Schema({
-    name : { type : String , required : true },
-    family: { type: String , required : true },
-    username : { type : String , required : true},
-    password : { type : String ,  required : true },
-} , { timestamps : true });
+    name: { type: 'string'  },
+    family: { type: 'string'  },
+    username: { type: 'string' },
+    password: { type: 'string'  }
+} );
 
 userSchema.plugin(mongoosePaginate);
 
@@ -17,4 +17,4 @@ userSchema.plugin(mongoosePaginate);
 //})
 
 //export default mongoose.model('Users', userSchema);
-module.exports = mongoose.model('Users' , userSchema);
+module.exports = mongoose.model('Users' , userSchema,'Users');

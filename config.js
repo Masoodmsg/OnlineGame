@@ -1,6 +1,6 @@
 //var util = require('./Common/Utility');
 const mongoose = require('mongoose');
-const SocketEvents = require('./controllers/SocketEvents')
+const SocketEvents = require('./controllers/SocketEvents');
 
 var config = {
     debug: true,
@@ -12,8 +12,7 @@ var config = {
 
         mongoose.connect('mongodb+srv://masood:masgha@cluster0-l87vi.azure.mongodb.net/', {
             dbName: 'OnlineGame',
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            useNewUrlParser: true
         }).then((a, b) => console.log('run db'))
             .catch(err => console.error(err));
 

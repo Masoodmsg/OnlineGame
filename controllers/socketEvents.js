@@ -28,7 +28,7 @@ class SocketEvents {
 
     disconnect(conn) {
 
-        console.log('user left play', this.socket.id, conn)
+        console.log('user left play', this.socket.id, conn);
         
     }
 
@@ -37,7 +37,8 @@ class SocketEvents {
         console.log('user info', user)
         //user.connectionID = this.socket.id
 
-        this.loginUsers.set(this.socket.id, user)
+        this.loginUsers.set(this.socket.id, user);
+        console.log(this.loginUsers.size)
         this.socket.userInfo = user
     }
 }

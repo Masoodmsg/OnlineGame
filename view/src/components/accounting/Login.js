@@ -14,6 +14,7 @@ function Login(props) {
                 query Login {
                     login(username: "masood", password: "123456"){
                         name
+                        username
                     }
                 }
             `
@@ -24,7 +25,7 @@ function Login(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(query)
         }).then(res => res.json()).then((res) => {
-
+            console.log(res.data)
             window.socket.emit('login',res.data.login) 
         });
     }
@@ -33,14 +34,14 @@ function Login(props) {
         <div >
 
 
-            <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <p >
                 <label htmlFor="username">username</label>
-                <input type="text" className="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="" />
+                <input type="text"  name="username" id="username" autoComplete="username" value="" />
             </p>
-            <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <p >
                 <label htmlFor="password">password</label>
                 <span className="password-input">
-                    <input className="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
+                    <input type="password" name="password" id="password" autoComplete="current-password" />
 
                 </span>
             </p>

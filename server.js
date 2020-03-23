@@ -8,7 +8,7 @@ const resolvers = require('./controllers');
 
 
 
-var app = express()
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 // Provide resolver functions for your schema fields
@@ -23,10 +23,10 @@ server.applyMiddleware({ app });
 
 app.use(bodyParser.text({type: '*/*'}));
 app.use('/', routers.getRouter());
-app.use('/', express.static(__dirname + '/view/'))//path.join(this.rootDir, 'Viewes')
-app.use('/Assets/Images', express.static(__dirname + '/Viewes/Assets/Images'))
+app.use('/', express.static(__dirname + '/view/'));//path.join(this.rootDir, 'Viewes')
+app.use('/Assets/Images', express.static(__dirname + '/Viewes/Assets/Images'));
 
-global.WebSocket = io
+global.WebSocket = io;
 
 
 http.listen(config.port, config.host, config.appStart());
