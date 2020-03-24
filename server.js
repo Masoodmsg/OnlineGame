@@ -24,7 +24,7 @@ server.applyMiddleware({ app });
 app.use(bodyParser.text({type: '*/*'}));
 app.use('/', routers.getRouter());
 app.use('/', express.static(__dirname + '/view/'));//path.join(this.rootDir, 'Viewes')
-app.use('/Assets/Images', express.static(__dirname + '/Viewes/Assets/Images'));
+app.use('/view/assets/games/Go', express.static(__dirname + '/view/assets/games/Go'));
 
 global.WebSocket = io;
 
