@@ -4,7 +4,7 @@ const SocketEvents = require('./controllers/SocketEvents');
 
 var config = {
     debug: true,
-    host: 'localhost',
+    host: '192.168.20.30',  //localhost
     port: 3008,
 
    

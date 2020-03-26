@@ -20,6 +20,7 @@ function Login(props) {
                     login(username: $username, password: $password){
                         name
                         username
+                        opponent
                     }
                 }
             `,
@@ -35,7 +36,7 @@ function Login(props) {
             body: JSON.stringify(query)
         }).then(res => res.json()).then((res) => {
             console.log(res.data)
-            window.socket.emit('login', res.data.login) 
+            window.socket.emit('login', window.socket.id, res.data.login) 
 
             props.history.push('./game/go')
         });

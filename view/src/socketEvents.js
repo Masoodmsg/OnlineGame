@@ -15,7 +15,7 @@ export default function SocketEvents(url) {
         });
         socket.on('login', function (data) { });
         socket.on('disconnect', function () { });
-
+       
 
         return socket
     }

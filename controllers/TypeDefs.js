@@ -29,6 +29,7 @@ let typeDefs = gql`
     type Login {
         name : String
         username : String
+        opponent : String
     }
 `
 module.exports = typeDefs

@@ -5,7 +5,8 @@ const userSchema = mongoose.Schema({
     name: { type: 'string'  },
     family: { type: 'string'  },
     username: { type: 'string' },
-    password: { type: 'string'  }
+    password: { type: 'string' },
+    opponent: { type: 'string' }
 } );
 
 userSchema.plugin(mongoosePaginate);

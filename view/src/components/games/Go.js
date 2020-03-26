@@ -10,6 +10,11 @@ class Go extends Component {
 
         super(props)
         this.wgo = React.createRef();
+        this.color = 'black';
+        this.board
+        this.player
+
+        window.socket.on('play', this.playOpponent.bind(this));
     }
 
     componentDidMount() {
@@ -20,61 +25,67 @@ class Go extends Component {
         sheet.type = 'text/css';
         document.head.appendChild(sheet);
 
-        const script = document.createElement("script");
+        let script = document.createElement("script");
         script.async = true;
         script.src = "./view/assets/games/Go/wgo.js";
         document.body.appendChild(script);
         script.onload = (e) => {
 
-            
-            let board = new window.WGo.Board(this.wgo.current, {
+            script = document.createElement("script");
+            script.async = true;
+            script.src = "./view/assets/games/Go/wgo.player.js";
+            document.body.appendChild(script);
+            script.onload = (e) => {
 
-                width: 600,
-                height: 600
-            })
 
-            board.addEventListener("click", play);
+                this.player = new WGo.BasicPlayer(this.wgo.current, {
+                    sgf: "game.sgf",
+                    kifuLoaded: function(e) {
+                        //elem2.innerHTML += '> Loaded kifu: ' + e.kifu.info.black.name + ' vs. ' + e.kifu.info.white.name + '\n';
+                        console.log(e)
+                    },
+                    update: (e) => {
+
+                        if (e.op !== 'init' && e.node.move) {
+                            //e.target.setFrozen(true)
+                            //console.log(e, e.target.board.getState())
+                            window.socket.emit('play', window.socket.id,e.node.move, e.target.board.getState())
+                        }
+                      
+                    },
+                    frozen: function(e) {
+                        console.log(e)
+                    },
+                    unfrozen: function(e) {
+                        console.log(e)
+                    }
+                });
+
+                this.player.board.setSize(9)
+                this.player.board.setWidth(600)
+
+            };
+          
+           
         };
 
 
         
-       
-       
-
-       
 
     }
 
-    play(x, y) {
+    playOpponent(position, states) {
 
-        if (tool.value == "black") {
-            board.addObject({
-                x: x,
-                y: y,
-                c: WGo.B
-            });
-        }
-        else if (tool.value == "white") {
-            board.addObject({
-                x: x,
-                y: y,
-                c: WGo.W
-            });
-        }
-        else if (tool.value == "remove") {
-            board.removeObjectsAt(x, y);
-        }
-        else {
-            board.addObject({
-                x: x,
-                y: y,
-                type: tool.value
-            });
-        }
+        this.player.board.restoreState(states)
+        this.player.kifuReader.game.turn = position.c == 1 ? -1 : 1;
+        this.player.setFrozen(false)
     }
+
+
     render() {
 
         return <div ref={this.wgo}></div>
+       
     }
 }
 
