@@ -20,16 +20,28 @@ class SocketEvents {
         //this.socket = socket
        
         this.sockets.set(socket.id, socket)
-        socket.on('login', this.login.bind(this));
-        socket.on('play', this.play.bind(this));
-        socket.on('disconnect', this.disconnect.bind(this));
         
+        socket.on('disconnect', this.disconnect);
+        socket.on('disconnecting', this.disconnecting);
+        socket.on('error', this.error);
+
+
+        socket.on('login', this.login.bind(this));
+        socket.on('play', this.play.bind(this)); 
     }
 
-    disconnect(conn) {
+    disconnect(reason) {
 
-        console.log('user left play', conn);
-        
+        console.log('disconnect', reason);
+        if (reason === 'transport close') {
+            this.sockets.delete(this.id)
+        }
+    }
+    error(error) {
+        console.log('error', error);
+    }
+    disconnecting(reason) {
+        console.log('disconnecting', reason);
     }
 
     login(socketID, user) {
@@ -41,6 +53,8 @@ class SocketEvents {
         this.loginUsers.set(user.username, socket.id); 
         console.log(this.loginUsers.size)
         socket.userInfo = user
+
+        
     }
 
     play(socketID, position, states) {
@@ -52,7 +66,7 @@ class SocketEvents {
        
         let opponentSocketID = this.loginUsers.get(opponent)
        
-        socket.to(opponentSocketID).emit('play', position, states);    
+        socket.to(opponentSocketID).emit('play', position, states);     
     }
 }
 

@@ -13,7 +13,8 @@ class Go extends Component {
         this.color = 'black';
         this.board
         this.player
-
+        this.game
+        this.isPlay = true
         window.socket.on('play', this.playOpponent.bind(this));
     }
 
@@ -46,8 +47,9 @@ class Go extends Component {
                     },
                     update: (e) => {
 
-                        if (e.op !== 'init' && e.node.move) {
-                            //e.target.setFrozen(true)
+                        if (e.op !== 'init' && e.node.move && this.isPlay) {
+                            e.target.setFrozen(true)
+                            this.isPlay = true
                             //console.log(e, e.target.board.getState())
                             window.socket.emit('play', window.socket.id,e.node.move, e.target.board.getState())
                         }
@@ -61,6 +63,8 @@ class Go extends Component {
                     }
                 });
 
+                this.game = new WGo.Player.Editable(this.player, this.player.board)
+                this.game.set(true)
                 this.player.board.setSize(9)
                 this.player.board.setWidth(600)
 
@@ -76,9 +80,15 @@ class Go extends Component {
 
     playOpponent(position, states) {
 
-        this.player.board.restoreState(states)
-        this.player.kifuReader.game.turn = position.c == 1 ? -1 : 1;
+        //this.player.board.addObject(position)
+        //this.player.board.restoreState(states)
+        this.isPlay = false
         this.player.setFrozen(false)
+        this.game.play(position.x, position.y)
+        this.isPlay = true
+        this.player.kifuReader.game.turn = position.c == 1 ? -1 : 1;
+       
+        
     }
 
 
