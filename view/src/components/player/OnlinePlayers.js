@@ -9,15 +9,10 @@ class OnlinePlayers extends Component {
     constructor(props) {
 
 
-        super(props)
-        this.wgo = React.createRef();
-        this.color = 'black';
-        this.board
-        this.player
-        this.game
-        this.isPlay = true
+        super(props);
+        this.state = { users: [] };
         window.socket.on('join', this.join.bind(this));
-        window.socket.on('left', this.left.bind(this));
+        window.socket.on('leave', this.leave.bind(this));
     }
 
     componentDidMount() {
@@ -25,18 +20,43 @@ class OnlinePlayers extends Component {
 
     }
 
-    join() {
+    join(users) {
+
+
+
+        this.setState((state) => {
+            state.users = users;
+            return state;
+        });
 
     }
 
-    left() {
+    leave() {
 
+        this.setState((state) => {
+            state.users = users;
+            return state;
+        });
     }
 
     render() {
 
-        return (<div> </div>)
+        let users = this.state.users;
+        if (users) {
+            return (
+                <select id="onlineUser" multiple style={{ width: '100%', height: '100%' }}>
+
+                    {
+                        users.map((user, i) => {
+                            return <option key={i} value={user.username}>{user.name + ' ' + user.family}</option>;
+                        })
+                    }
+                </select>
+
+            );
+        }
+        return null
     }
 }
 
-export default OnlinePlayers
+export default OnlinePlayers;

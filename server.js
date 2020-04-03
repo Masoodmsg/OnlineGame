@@ -6,6 +6,14 @@ const { ApolloServer } = require('apollo-server-express');
 const typeDefs = require('./controllers/TypeDefs');
 const resolvers = require('./controllers');
 
+process.on('uncaughtExceptionMonitor', (err, origin) => {
+    console.log('uncaughtExceptionMonitor', err);
+    console.log('uncaughtExceptionMonitor', origin);
+});
+process.on('uncaughtException', (err, origin) => {
+    console.log('uncaughtException', err);
+    console.log('uncaughtException', origin);
+});
 
 
 var app = express();

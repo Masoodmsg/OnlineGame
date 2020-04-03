@@ -21,6 +21,7 @@ function Login(props) {
                         name
                         username
                         opponent
+                        family
                     }
                 }
             `,

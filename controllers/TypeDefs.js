@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express')
+const { gql } = require('apollo-server-express');
 
 let typeDefs = gql`
     type Query {
@@ -30,6 +30,7 @@ let typeDefs = gql`
         name : String
         username : String
         opponent : String
+        family : String
     }
-`
-module.exports = typeDefs
+`;
+module.exports = typeDefs;

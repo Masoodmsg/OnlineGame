@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-
+import OnlinePlayers from './../player/OnlinePlayers'
 
 
 class Go extends Component {
@@ -41,7 +41,7 @@ class Go extends Component {
 
                 this.player = new WGo.BasicPlayer(this.wgo.current, {
                     sgf: "game.sgf",
-                    kifuLoaded: function(e) {
+                    kifuLoaded: function (e) {
                         //elem2.innerHTML += '> Loaded kifu: ' + e.kifu.info.black.name + ' vs. ' + e.kifu.info.white.name + '\n';
                         console.log(e)
                     },
@@ -51,14 +51,14 @@ class Go extends Component {
                             e.target.setFrozen(true)
                             this.isPlay = true
                             //console.log(e, e.target.board.getState())
-                            window.socket.emit('play', window.socket.id,e.node.move, e.target.board.getState())
+                            window.socket.emit('play', window.socket.id, e.node.move, e.target.board.getState())
                         }
-                      
+
                     },
-                    frozen: function(e) {
+                    frozen: function (e) {
                         console.log(e)
                     },
-                    unfrozen: function(e) {
+                    unfrozen: function (e) {
                         console.log(e)
                     }
                 });
@@ -69,12 +69,12 @@ class Go extends Component {
                 this.player.board.setWidth(600)
 
             };
-          
-           
+
+
         };
 
 
-        
+
 
     }
 
@@ -87,15 +87,27 @@ class Go extends Component {
         this.game.play(position.x, position.y)
         this.isPlay = true
         this.player.kifuReader.game.turn = position.c == 1 ? -1 : 1;
-       
-        
+
+
     }
 
 
     render() {
 
-        return <div ref={this.wgo}></div>
-       
+        return (
+            <table style={{ width: '100%', height: '100%'}}>
+                <tr>
+                  
+                    <td style={{ width: '80%' }}>
+                        <div ref={this.wgo} />
+                    </td >
+                    <td style={{ width: '20%' }}>
+                        <OnlinePlayers />
+                    </td >
+                </tr>
+            </table >
+        )
+
     }
 }
 

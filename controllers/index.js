@@ -1,7 +1,7 @@
-const  UserController = require( "./UserController")
+const UserController = require("./UserController");
 
 
-let Query = Object.assign({}, UserController)
-let resolvers = { Query }
+let Query = Object.assign({}, UserController);
+let resolvers = { Query };
 
-module.exports = resolvers
+module.exports = resolvers;
