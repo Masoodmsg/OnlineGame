@@ -1,3 +1,5 @@
+const utils = require('./../common/utility')
+
 class SocketEvents {
 
     constructor(io) {
@@ -61,7 +63,10 @@ class SocketEvents {
         let socket = this.sockets.get(socketID);
         //console.log('user info', socket)
         //user.connectionID = this.socket.id
+
         user.status = 'free';
+        user.time = Date.now()
+
         this.loginUsers.set(user.username, socket.id); 
         this.loginUsersInfo.set(user.username, user); 
         
@@ -88,6 +93,33 @@ class SocketEvents {
        
         this.io.to(opponentSocketID).emit('play', position, states);  
       
+    }
+
+    findOpponent(socketID) {
+
+        let socket = this.sockets.get(socketID);
+        let user = socket.userInfo
+        //user.status = 'req'
+        
+    }
+
+    getUsers(field, value) {
+
+       
+        let users = utils.array.pluck(Array.from(this.sockets.values),'userInfo')
+        let newUsers = []
+
+        for (let i = 0; i < users.length; i++) {
+
+            if (users[i][field] === value)
+                newUsers.push(users[i])
+        }
+
+        newUsers = newUsers.sort(function (a, b) {
+            return a.time - b.time;
+        }); 
+
+        return newUsers
     }
 }
 

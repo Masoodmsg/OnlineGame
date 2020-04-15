@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\common",
     "\\controllers",
-    "\\models",
+    "\\routers",
     "\\view",
-    "\\view\\assets",
-    "\\view\\assets\\games",
     "\\view\\src",
     "\\view\\src\\components",
     "\\view\\src\\components\\accounting",
-    "\\view\\src\\components\\games"
+    "\\view\\src\\components\\games",
+    "\\view\\src\\components\\player"
   ],
-  "SelectedNode": "\\controllers\\socketEvents.js",
+  "SelectedNode": "\\common\\utility.js",
   "PreviewInSolutionExplorer": false
 }
