@@ -36,8 +36,9 @@ function Login(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(query)
         }).then(res => res.json()).then((res) => {
-            console.log(res.data)
-            window.socket.emit('login', window.socket.id, res.data.login) 
+            console.log(res.data);
+            localStorage.setItem('user', JSON.stringify(res.data.login));
+            window.socket.emit('login', window.socket.id, res.data.login);
 
             props.history.push('./game/go')
         });

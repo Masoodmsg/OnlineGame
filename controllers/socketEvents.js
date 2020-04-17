@@ -106,20 +106,20 @@ class SocketEvents {
     getUsers(field, value) {
 
        
-        let users = utils.array.pluck(Array.from(this.sockets.values),'userInfo')
-        let newUsers = []
+        let users = utils.array.pluck(Array.from(this.sockets.values), 'userInfo');
+        let newUsers = [];
 
         for (let i = 0; i < users.length; i++) {
 
             if (users[i][field] === value)
-                newUsers.push(users[i])
+                newUsers.push(users[i]);
         }
 
         newUsers = newUsers.sort(function (a, b) {
             return a.time - b.time;
         }); 
 
-        return newUsers
+        return newUsers;
     }
 }
 
