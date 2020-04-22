@@ -74,12 +74,12 @@ class SocketEvents {
        
         socket.userInfo = user;
         
-        socket.join('LoginRoom', () => {
+        //socket.join('LoginRoom', () => {
 
 
-            this.io.to('LoginRoom').emit('join', Array.from(this.loginUsersInfo.values()));
+        //    this.io.to('LoginRoom').emit('join', Array.from(this.loginUsersInfo.values()));
             
-        });
+        //});
     }
 
     play(socketID, position, states) {

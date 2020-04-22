@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 
 
@@ -37,10 +37,12 @@ function Login(props) {
             body: JSON.stringify(query)
         }).then(res => res.json()).then((res) => {
             console.log(res.data);
-            localStorage.setItem('user', JSON.stringify(res.data.login));
-            window.socket.emit('login', window.socket.id, res.data.login);
-
-            props.history.push('./game/go')
+            if (res.data.login) {
+                localStorage.setItem('user', JSON.stringify(res.data.login));
+                window.socket.emit('login', window.socket.id, res.data.login);
+                props.history.push('/');
+            }
+           // props.history.push('./game/go')
         });
     }
 
@@ -49,11 +51,11 @@ function Login(props) {
 
 
             <p >
-                <label htmlFor="username">username</label>
+                <label htmlFor="username">نام کاربری</label>
                 <input type="text" name="username" id="username" ref={username}/>
             </p>
             <p >
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">رمز عبور</label>
                 <span className="password-input">
                     <input type="password" name="password" id="password" autoComplete="current-password" ref={password}/>
 
@@ -64,7 +66,7 @@ function Login(props) {
             <p className="form-row">
 
 
-                <button type="button" name="login" value="����" onClick={login.bind(this)}>Enter</button>
+                <button type="button" name="login" value="æÑæÏ" onClick={login.bind(this)}>ورود</button>
 			</p>
                              
 

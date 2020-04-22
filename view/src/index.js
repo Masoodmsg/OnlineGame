@@ -11,6 +11,18 @@ import config from './../../config';
 
 
 window.socket = new SocketEvents('http://' + config.host + ':' + config.port.toString()).init();
+let user = localStorage.getItem('user')
+if (user) {
+    user = JSON.parse(user)
+    user.status = 'login';
+    user.time = Date.now()
+}
+else
+    user = { status: 'guest', time: Date.now() }
+
+socket.on('connect', function (socket) {
+    window.socket.emit('login', window.socket.id, user)
+});
 
 ReactDOM.render(
     
