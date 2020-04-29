@@ -67,6 +67,8 @@ class Go extends Component {
                 this.game.set(true);
                 this.player.board.setSize(9);
                 this.player.board.setWidth(600);
+                
+                this.player.setFrozen(this.props.match.params.isFirst === 'true' ? true : false)
 
             };
 

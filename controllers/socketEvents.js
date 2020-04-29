@@ -18,6 +18,7 @@ class SocketEvents {
     connection(socket) {
 
         console.log(socket.id);
+        console.log('connection', this.getUsers('user', null, 'Go-playing'));
         //this.socket = socket
        
         //this.sockets.set(socket.id, socket);
@@ -45,12 +46,15 @@ class SocketEvents {
 
         socket.on('login', this.login.bind(this));  
         socket.on('play', this.play.bind(this)); 
+        socket.on('findOpponent', this.findOpponent.bind(this)); 
+        socket.on('leaveGame', this.leaveGame.bind(this)); 
+        
     }
 
     disconnect(reason) {
 
         console.log('disconnect', reason);
-        
+        console.log('disconnect', this.getUsers('user', null, 'Go-playing'));
     }
     error(error) {
         console.log('error', error);
@@ -68,7 +72,7 @@ class SocketEvents {
         // console.log(user);
 
         socket.user = user;
-        socket.userId = user.id;
+        socket.username = user.username;
         console.log(socketID, user.FullName + "  " + socket.user.UserID, user.status);
 
     }
@@ -78,25 +82,57 @@ class SocketEvents {
       
         let socket = this.findSocket(null, null, socketID);
         
-        let opponent = socket.user.opponent;
+        let opponent = socket.opponent;
        
-        let opponentSocketID = this.loginUsers.get(opponent);
        
-        this.io.to(opponentSocketID).emit('play', position);  
+       
+        this.io.to(opponent).emit('play', position);  
       
     }
 
     findOpponent(socketID, game) {
 
         let socket = this.findSocket(null, null, socketID);
-        let user = socket.user;
+        socket.reqTime = Date.now();
+        
+        let sockets = this.findSocket(null, game, null);
+        socket.join(game);
+
+        if (sockets.length > 0) {
+
+            let socketOpponent = sockets.sort(function (a, b) {
+                return a.reqTime - b.reqTime;
+            })[0];
+
+            socket.opponent = socketOpponent.id;
+            socketOpponent.opponent = socket.id;
+
+            socketOpponent.leave(game)
+            socket.leave(game)
+
+            socketOpponent.join(game + '-playing');
+            socket.join(game + '-playing');
+
+            console.log(socketOpponent.id, socket.id)
+            socket.emit('findOpponent', 'true')
+            socketOpponent.emit('findOpponent','false')
+        }
+        
         //user.status = 'req'
         
     }
 
-   
+    leaveGame(socketID, game) {
 
-    findSocket(roomId, namespace, socketId) {
+        let socket = this.findSocket(null, null, socketID);
+        socket.leave(game + '-playing')
+        let socketOpponent = this.findSocket(null, null, socket.opponent);
+        socketOpponent.leave(game + '-playing')
+        socket.opponent = null;
+        socketOpponent.opponent = null;
+    }
+
+    findSocket(namespace, roomId, socketId) {
 
         var res = [],
             ns = this.io.of(namespace || "/");
@@ -107,8 +143,9 @@ class SocketEvents {
         if (ns) {
             for (var id in ns.connected) {
                 if (roomId) {
-                    var index = ns.connected[id].rooms.indexOf(roomId);
-                    if (index !== -1) {
+                    console.log(ns.connected[id].rooms)
+                    var index =  ns.connected[id].rooms[roomId];
+                    if (index) {
                         res.push(ns.connected[id]);
                     }
                 } else {
@@ -119,9 +156,9 @@ class SocketEvents {
         return res;
     }
 
-    getUsers(field, value) {
+    getUsers(field, value, roomId) {
 
-        let sockets = this.findSocket();
+        let sockets = roomId ? this.findSocket(null, roomId) : this.findSocket();
 
         let users = utils.array.pluck(sockets, 'user');
 
@@ -132,7 +169,11 @@ class SocketEvents {
 
         for (let i = 0; i < users.length; i++) {
 
-            if (users[i][field] === value)
+            if (value) {
+                if (users[i][field] === value)
+                    newUsers.push(users[i]);
+            }
+            else
                 newUsers.push(users[i]);
         }
 

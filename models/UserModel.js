@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 
 const userSchema = mongoose.Schema({
+    id: mongoose.ObjectId,
     name: { type: 'string'  },
     family: { type: 'string'  },
     username: { type: 'string' },

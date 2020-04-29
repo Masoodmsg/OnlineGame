@@ -27,6 +27,7 @@ let typeDefs = gql`
     }
 
     type Login {
+        id : String
         name : String
         username : String
         opponent : String

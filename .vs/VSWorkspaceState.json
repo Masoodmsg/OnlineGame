@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\view",
+    "\\view\\assets",
+    "\\view\\assets\\games",
+    "\\view\\assets\\games\\Backgommon",
+    "\\view\\assets\\games\\Backgommon\\js",
+    "\\view\\src",
+    "\\view\\src\\components",
+    "\\view\\src\\components\\accounting",
+    "\\view\\src\\components\\player"
+  ],
+  "SelectedNode": "\\controllers\\socketEvents.js",
+  "PreviewInSolutionExplorer": false
+}

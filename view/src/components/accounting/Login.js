@@ -18,6 +18,7 @@ function Login(props) {
                 query Login($username: String!, $password: String!) {
 
                     login(username: $username, password: $password){
+                        id
                         name
                         username
                         opponent
