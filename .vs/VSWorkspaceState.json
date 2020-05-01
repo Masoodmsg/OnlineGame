@@ -9,8 +9,8 @@
     "\\view\\src",
     "\\view\\src\\components",
     "\\view\\src\\components\\accounting",
-    "\\view\\src\\components\\player"
+    "\\view\\src\\components\\games"
   ],
-  "SelectedNode": "\\controllers\\socketEvents.js",
+  "SelectedNode": "\\view\\assets\\games\\Backgommon\\js\\backgommon.js",
   "PreviewInSolutionExplorer": false
 }

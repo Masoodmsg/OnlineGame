@@ -33,6 +33,7 @@ app.use(bodyParser.text({type: '*/*'}));
 app.use('/', routers.getRouter());
 app.use('/', express.static(__dirname + '/view/'));//path.join(this.rootDir, 'Viewes')
 app.use('/view/assets/games/Go', express.static(__dirname + '/view/assets/games/Go'));
+app.use('/view/assets/games/Backgommon', express.static(__dirname + '/view/assets/games/Backgommon'));
 
 global.WebSocket = io;
 

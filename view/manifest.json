@@ -1,0 +1,60 @@
+{
+  "name": "eNama",
+  "short_name": "eNama",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "https://enama.ir/",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "description": "اپلیکیشن eNama",
+  "icons": [
+    {
+      "src": "/assets/images/manifest/48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/167.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/manifest/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "author": "GTNA.co"
+}

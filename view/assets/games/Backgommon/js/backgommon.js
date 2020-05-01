@@ -244,9 +244,9 @@ console.log(JSON)
             ea = ta(function (a) {
                 return a.disabled === !0 && ("form" in a || "label" in a)
             }, {
-                dir: "parentNode",
-                next: "legend"
-            });
+                    dir: "parentNode",
+                    next: "legend"
+                });
         try {
             G.apply(D = H.call(v.childNodes), v.childNodes), D[v.childNodes.length].nodeType
         } catch (fa) {
@@ -13038,8 +13038,8 @@ PlayerIOErrorCode = {
         this.showRequestBlockUserDialog = function (c, d) {
             _pio.showDialog("requestblockuser",
                 a, {
-                userId: c
-            },
+                    userId: c
+                },
                 function () {
                     b.refresh(function () {
                         d && d()
@@ -14670,11 +14670,11 @@ function CNetworkManager() {
         MULTIPLAYER_TEST_LOCAL && (e.multiplayer.developmentServer = "localhost:8184");
         e.multiplayer.createJoinRoom(f,
             ROOM_TYPE_USEROWNER, !0, {
-            id: f,
-            pass: h
-        }, {
-            nickname: g
-        },
+                id: f,
+                pass: h
+            }, {
+                nickname: g
+            },
             function (e) {
                 b = e;
                 e.addMessageCallback("*", d.messageHandler);
@@ -14977,9 +14977,9 @@ function CPreloader() {
     var a, c, b, e, d, f, g, h, l, k;
     this._init = function () {
         s_oSpriteLibrary.init(this._onImagesLoaded, this._onAllImagesLoaded, this);
-        s_oSpriteLibrary.addSprite("progress_bar", "./sprites/progress_bar.png");
-        s_oSpriteLibrary.addSprite("200x200", "./sprites/200x200.jpg");
-        s_oSpriteLibrary.addSprite("but_start", "./sprites/but_start.png");
+        s_oSpriteLibrary.addSprite("progress_bar", "./view/assets/games/Backgommon/sprites/progress_bar.png");
+        s_oSpriteLibrary.addSprite("200x200", "./view/assets/games/Backgommon/sprites/200x200.jpg");
+        s_oSpriteLibrary.addSprite("but_start", "./view/assets/games/Backgommon/sprites/but_start.png");
         s_oSpriteLibrary.loadSprites();
         k = new createjs.Container;
         s_oStage.addChild(k)
@@ -15090,49 +15090,49 @@ function CMain(a) {
     this._initSounds = function () {
         var a = [];
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "press_button",
             loop: !1,
             volume: 1,
             ingamename: "press_button"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "game_over",
             loop: !1,
             volume: 1,
             ingamename: "game_over"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "win",
             loop: !1,
             volume: 1,
             ingamename: "win"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "click_cell",
             loop: !1,
             volume: 1,
             ingamename: "click_cell"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "dices",
             loop: !1,
             volume: 1,
             ingamename: "dices"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "positive_beep",
             loop: !1,
             volume: 1,
             ingamename: "positive_beep"
         });
         a.push({
-            path: "./sounds/",
+            path: "./view/assets/games/Backgommon/sounds/",
             filename: "negative_beep",
             loop: !1,
             volume: 1,
@@ -15152,64 +15152,64 @@ function CMain(a) {
     };
     this._loadImages = function () {
         s_oSpriteLibrary.init(this._onImagesLoaded, this._onAllImagesLoaded, this);
-        s_oSpriteLibrary.addSprite("local_but", "./sprites/local_but.png");
-        s_oSpriteLibrary.addSprite("multiplayer_but", "./sprites/multiplayer_but.png");
-        s_oSpriteLibrary.addSprite("msg_box", "./sprites/msg_box.png");
+        s_oSpriteLibrary.addSprite("local_but", "./view/assets/games/Backgommon/sprites/local_but.png");
+        s_oSpriteLibrary.addSprite("multiplayer_but", "./view/assets/games/Backgommon/sprites/multiplayer_but.png");
+        s_oSpriteLibrary.addSprite("msg_box", "./view/assets/games/Backgommon/sprites/msg_box.png");
         s_oSpriteLibrary.addSprite("alert_box",
-            "./sprites/alert_box.png");
-        s_oSpriteLibrary.addSprite("ctl_logo", "./sprites/ctl_logo.png");
-        s_oSpriteLibrary.addSprite("but_info", "./sprites/but_info.png");
-        s_oSpriteLibrary.addSprite("but_yes_big", "./sprites/but_yes_big.png");
-        s_oSpriteLibrary.addSprite("bg_menu", "./sprites/bg_menu.jpg");
-        s_oSpriteLibrary.addSprite("bg_game", "./sprites/bg_game.jpg");
-        s_oSpriteLibrary.addSprite("but_exit", "./sprites/but_exit.png");
-        s_oSpriteLibrary.addSprite("audio_icon", "./sprites/audio_icon.png");
+            "./view/assets/games/Backgommon/sprites/alert_box.png");
+        s_oSpriteLibrary.addSprite("ctl_logo", "./view/assets/games/Backgommon/sprites/ctl_logo.png");
+        s_oSpriteLibrary.addSprite("but_info", "./view/assets/games/Backgommon/sprites/but_info.png");
+        s_oSpriteLibrary.addSprite("but_yes_big", "./view/assets/games/Backgommon/sprites/but_yes_big.png");
+        s_oSpriteLibrary.addSprite("bg_menu", "./view/assets/games/Backgommon/sprites/bg_menu.jpg");
+        s_oSpriteLibrary.addSprite("bg_game", "./view/assets/games/Backgommon/sprites/bg_game.jpg");
+        s_oSpriteLibrary.addSprite("but_exit", "./view/assets/games/Backgommon/sprites/but_exit.png");
+        s_oSpriteLibrary.addSprite("audio_icon", "./view/assets/games/Backgommon/sprites/audio_icon.png");
         s_oSpriteLibrary.addSprite("but_fullscreen",
-            "./sprites/but_fullscreen.png");
-        s_oSpriteLibrary.addSprite("but_p1", "./sprites/but_p1.png");
-        s_oSpriteLibrary.addSprite("but_p2", "./sprites/but_p2.png");
-        s_oSpriteLibrary.addSprite("but_restart", "./sprites/but_restart.png");
-        s_oSpriteLibrary.addSprite("but_home", "./sprites/but_home.png");
-        s_oSpriteLibrary.addSprite("but_speed", "./sprites/but_speed.png");
-        s_oSpriteLibrary.addSprite("white_piece", "./sprites/white_piece.png");
-        s_oSpriteLibrary.addSprite("red_piece", "./sprites/red_piece.png");
+            "./view/assets/games/Backgommon/sprites/but_fullscreen.png");
+        s_oSpriteLibrary.addSprite("but_p1", "./view/assets/games/Backgommon/sprites/but_p1.png");
+        s_oSpriteLibrary.addSprite("but_p2", "./view/assets/games/Backgommon/sprites/but_p2.png");
+        s_oSpriteLibrary.addSprite("but_restart", "./view/assets/games/Backgommon/sprites/but_restart.png");
+        s_oSpriteLibrary.addSprite("but_home", "./view/assets/games/Backgommon/sprites/but_home.png");
+        s_oSpriteLibrary.addSprite("but_speed", "./view/assets/games/Backgommon/sprites/but_speed.png");
+        s_oSpriteLibrary.addSprite("white_piece", "./view/assets/games/Backgommon/sprites/white_piece.png");
+        s_oSpriteLibrary.addSprite("red_piece", "./view/assets/games/Backgommon/sprites/red_piece.png");
         s_oSpriteLibrary.addSprite("highlight",
-            "./sprites/highlight.png");
-        s_oSpriteLibrary.addSprite("triangle_white", "./sprites/triangle_white.png");
-        s_oSpriteLibrary.addSprite("triangle_red", "./sprites/triangle_red.png");
-        s_oSpriteLibrary.addSprite("but_dice", "./sprites/but_dice.png");
-        s_oSpriteLibrary.addSprite("launch_dices_white", "./sprites/launch_dices_white.png");
-        s_oSpriteLibrary.addSprite("launch_dices_red", "./sprites/launch_dices_red.png");
-        s_oSpriteLibrary.addSprite("but_no", "./sprites/but_no.png");
-        s_oSpriteLibrary.addSprite("turn_p1", "./sprites/turn_p1.png");
-        s_oSpriteLibrary.addSprite("turn_p2", "./sprites/turn_p2.png");
-        s_oSpriteLibrary.addSprite("turn_cpu", "./sprites/turn_cpu.png");
-        s_oSpriteLibrary.addSprite("light_turn", "./sprites/turn_selection.png");
-        s_oSpriteLibrary.addSprite("bg_select_mode", "./sprites/bg_select_mode.jpg");
-        s_oSpriteLibrary.addSprite("dice_white_a_1", "./sprites/dice_white_a_1.png");
-        s_oSpriteLibrary.addSprite("dice_white_a_2", "./sprites/dice_white_a_2.png");
-        s_oSpriteLibrary.addSprite("dice_white_a_3", "./sprites/dice_white_a_3.png");
-        s_oSpriteLibrary.addSprite("dice_white_a_4", "./sprites/dice_white_a_4.png");
-        s_oSpriteLibrary.addSprite("dice_white_a_5", "./sprites/dice_white_a_5.png");
-        s_oSpriteLibrary.addSprite("dice_white_a_6", "./sprites/dice_white_a_6.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_1", "./sprites/dice_white_b_1.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_2", "./sprites/dice_white_b_2.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_3", "./sprites/dice_white_b_3.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_4", "./sprites/dice_white_b_4.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_5", "./sprites/dice_white_b_5.png");
-        s_oSpriteLibrary.addSprite("dice_white_b_6", "./sprites/dice_white_b_6.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_1", "./sprites/dice_red_a_1.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_2", "./sprites/dice_red_a_2.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_3", "./sprites/dice_red_a_3.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_4", "./sprites/dice_red_a_4.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_5", "./sprites/dice_red_a_5.png");
-        s_oSpriteLibrary.addSprite("dice_red_a_6", "./sprites/dice_red_a_6.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_1", "./sprites/dice_red_b_1.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_2", "./sprites/dice_red_b_2.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_3", "./sprites/dice_red_b_3.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_4", "./sprites/dice_red_b_4.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_5", "./sprites/dice_red_b_5.png");
-        s_oSpriteLibrary.addSprite("dice_red_b_6", "./sprites/dice_red_b_6.png");
+            "./view/assets/games/Backgommon/sprites/highlight.png");
+        s_oSpriteLibrary.addSprite("triangle_white", "./view/assets/games/Backgommon/sprites/triangle_white.png");
+        s_oSpriteLibrary.addSprite("triangle_red", "./view/assets/games/Backgommon/sprites/triangle_red.png");
+        s_oSpriteLibrary.addSprite("but_dice", "./view/assets/games/Backgommon/sprites/but_dice.png");
+        s_oSpriteLibrary.addSprite("launch_dices_white", "./view/assets/games/Backgommon/sprites/launch_dices_white.png");
+        s_oSpriteLibrary.addSprite("launch_dices_red", "./view/assets/games/Backgommon/sprites/launch_dices_red.png");
+        s_oSpriteLibrary.addSprite("but_no", "./view/assets/games/Backgommon/sprites/but_no.png");
+        s_oSpriteLibrary.addSprite("turn_p1", "./view/assets/games/Backgommon/sprites/turn_p1.png");
+        s_oSpriteLibrary.addSprite("turn_p2", "./view/assets/games/Backgommon/sprites/turn_p2.png");
+        s_oSpriteLibrary.addSprite("turn_cpu", "./view/assets/games/Backgommon/sprites/turn_cpu.png");
+        s_oSpriteLibrary.addSprite("light_turn", "./view/assets/games/Backgommon/sprites/turn_selection.png");
+        s_oSpriteLibrary.addSprite("bg_select_mode", "./view/assets/games/Backgommon/sprites/bg_select_mode.jpg");
+        s_oSpriteLibrary.addSprite("dice_white_a_1", "./view/assets/games/Backgommon/sprites/dice_white_a_1.png");
+        s_oSpriteLibrary.addSprite("dice_white_a_2", "./view/assets/games/Backgommon/sprites/dice_white_a_2.png");
+        s_oSpriteLibrary.addSprite("dice_white_a_3", "./view/assets/games/Backgommon/sprites/dice_white_a_3.png");
+        s_oSpriteLibrary.addSprite("dice_white_a_4", "./view/assets/games/Backgommon/sprites/dice_white_a_4.png");
+        s_oSpriteLibrary.addSprite("dice_white_a_5", "./view/assets/games/Backgommon/sprites/dice_white_a_5.png");
+        s_oSpriteLibrary.addSprite("dice_white_a_6", "./view/assets/games/Backgommon/sprites/dice_white_a_6.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_1", "./view/assets/games/Backgommon/sprites/dice_white_b_1.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_2", "./view/assets/games/Backgommon/sprites/dice_white_b_2.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_3", "./view/assets/games/Backgommon/sprites/dice_white_b_3.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_4", "./view/assets/games/Backgommon/sprites/dice_white_b_4.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_5", "./view/assets/games/Backgommon/sprites/dice_white_b_5.png");
+        s_oSpriteLibrary.addSprite("dice_white_b_6", "./view/assets/games/Backgommon/sprites/dice_white_b_6.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_1", "./view/assets/games/Backgommon/sprites/dice_red_a_1.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_2", "./view/assets/games/Backgommon/sprites/dice_red_a_2.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_3", "./view/assets/games/Backgommon/sprites/dice_red_a_3.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_4", "./view/assets/games/Backgommon/sprites/dice_red_a_4.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_5", "./view/assets/games/Backgommon/sprites/dice_red_a_5.png");
+        s_oSpriteLibrary.addSprite("dice_red_a_6", "./view/assets/games/Backgommon/sprites/dice_red_a_6.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_1", "./view/assets/games/Backgommon/sprites/dice_red_b_1.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_2", "./view/assets/games/Backgommon/sprites/dice_red_b_2.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_3", "./view/assets/games/Backgommon/sprites/dice_red_b_3.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_4", "./view/assets/games/Backgommon/sprites/dice_red_b_4.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_5", "./view/assets/games/Backgommon/sprites/dice_red_b_5.png");
+        s_oSpriteLibrary.addSprite("dice_red_b_6", "./view/assets/games/Backgommon/sprites/dice_red_b_6.png");
         e += s_oSpriteLibrary.getNumSprites();
         s_oSpriteLibrary.loadSprites()
     };

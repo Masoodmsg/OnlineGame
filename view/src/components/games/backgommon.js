@@ -11,9 +11,29 @@ class Backgommon extends Component {
     }
     componentDidMount() {
 
-        import('./../../../assets/games/Backgommon/js/backgommon').then((E) => {
+        //import('./../../../assets/games/Backgommon/js/backgommon').then((E) => {
 
-            var oMain = new E.default.CMain({
+        //    var oMain = new E.default.CMain({
+
+        //        fullscreen: true, //SET THIS TO FALSE IF YOU DON'T WANT TO SHOW FULLSCREEN BUTTON
+        //        check_orientation: true,     //SET TO FALSE IF YOU DON'T WANT TO SHOW ORIENTATION ALERT ON MOBILE DEVICES   
+        //    });
+
+        //    if (isIOS()) {
+        //        setTimeout(function () { sizeHandler(); }, 200);
+        //    } else {
+        //        sizeHandler();
+        //    } 
+        //})
+
+        let script = document.createElement("script");
+        script.async = true;
+        script.id = 'backgommon';
+        script.src = "./view/assets/games/Backgommon/js/backgommon.js";
+        document.body.appendChild(script);
+        script.onload = (e) => {
+
+            var oMain = new CMain({
 
                 fullscreen: true, //SET THIS TO FALSE IF YOU DON'T WANT TO SHOW FULLSCREEN BUTTON
                 check_orientation: true,     //SET TO FALSE IF YOU DON'T WANT TO SHOW ORIENTATION ALERT ON MOBILE DEVICES   
@@ -24,7 +44,7 @@ class Backgommon extends Component {
             } else {
                 sizeHandler();
             } 
-        })
+        };
        
     }
 
